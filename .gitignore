@@ -1,3 +1,11 @@
+game/gui
+game/images
+game/music
+game/saves
+game/tl
+hs-friendsim.app/
+lib/
+renpy/
 .DS_Store
 dialogue.tab
 dialogue.txt
@@ -57,6 +65,7 @@ game/volume18.rpa
 game/zzz_voice_patch.rpyc
 
 game/zzz_vol17script.rpyc
+game/cache/*
 game/cache/bytecode-39.rpyb
 game/cache/py3analysis.rpyb
 game/cache/pyanalysis.rpyb
@@ -696,6 +705,7 @@ game/tl/None/common.rpymc
 # game/voice/volumeone_f2285fba.ogg
 # game/voice/volumeone_f81903e7.ogg
 # game/voice/volumeone_ff2285fba.ogg
+game/volumes/
 game/volumes/.DS_Store
 game/volumes/volume10/vol10script.rpy
 game/volumes/volume10/vol10script.rpyc
