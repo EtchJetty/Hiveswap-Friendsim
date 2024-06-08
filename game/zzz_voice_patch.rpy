@@ -1208,8 +1208,8 @@ init -5 python:
 
 screen troll_select1():
     
-    imagebutton auto "images/charselect/ardata_button_%s.png" action Jump("ardata") pos (0, 0) alt _("Ardata Carmia") hover_sound "voice/hover/Volume_1_Ardata_Select.ogg"
-    imagebutton auto "images/charselect/diemen_button_%s.png" action Jump("diemen") pos (640, 0) alt _("Diemen Xicali") hover_sound "voice/hover/Volume_1_Diemen_Select.ogg"
+    imagebutton auto "images/charselect/ardata_button_%s.png" action Jump("ardata") pos (0, 0) alt _("Ardata Carmia") hovered PlayCharacterVoice("narrator", "voice/hover/Volume_1_Ardata_Select.ogg")
+    imagebutton auto "images/charselect/diemen_button_%s.png" action Jump("diemen") pos (640, 0) alt _("Diemen Xicali") hovered PlayCharacterVoice("narrator", "voice/hover/Volume_1_Diemen_Select.ogg")
     
 screen troll_select2():
     
@@ -1291,3 +1291,13 @@ screen troll_select17():
 screen troll_select18():
     imagebutton auto "volumes/volume18/images/charselect/lanque_button_%s.png" action Jump("lanque") pos (0, 0) alt _("Lanque Bombyx") 
     imagebutton auto "volumes/volume18/images/charselect/soleil_button_%s.png" action Jump("soleil") pos (640, 0) alt _("Barzum & Bazili") 
+
+screen choice(items):
+    style_prefix "choice"
+
+    vbox:
+        for i in items: 
+            if renpy.loadable(f"voice/hover/{i.caption}.ogg"):
+                textbutton i.caption action i.action hovered PlayCharacterVoice("narrator", f"voice/hover/{i.caption}.ogg")
+            else: 
+                textbutton i.caption action i.action                
