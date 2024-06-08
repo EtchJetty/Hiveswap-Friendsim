@@ -5,6 +5,7 @@ game/saves
 game/fonts
 game/voice/etch
 hs-friendsim.app/
+*.rpyc
 lib/
 renpy/
 .DS_Store
