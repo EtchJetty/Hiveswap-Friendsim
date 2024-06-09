@@ -1025,15 +1025,15 @@ screen vol_select():
                 
                 if volume2:
                     
-                    imagebutton auto "gui/volumetwo_%s.png" action Jump("volumetwo") alt _("Volume Two: Of Aesthetics, Crimson And Otherwise") sensitive volume2
+                    imagebutton auto "gui/volumetwo_%s.png" action Jump("volumetwo") alt _("Volume Two: Of Aesthetics, Crimson And Otherwise") sensitive volume2 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Two_Title.ogg")
                     
                 if volume3:
                     
-                    imagebutton auto "gui/volumethree_%s.png" action Jump("volumethree") alt "Volume Three: Of Ladies Gray And Lusii White" sensitive volume3
+                    imagebutton auto "gui/volumethree_%s.png" action Jump("volumethree") alt "Volume Three: Of Ladies Gray And Lusii White" sensitive volume3 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Three_Title.ogg")
                     
                 if volume4:
                     
-                    imagebutton auto "gui/volumefour_%s.png" action Jump("volumefour") alt "Volume Four: Of Wright And Wronged" sensitive volume4
+                    imagebutton auto "gui/volumefour_%s.png" action Jump("volumefour") alt "Volume Four: Of Wright And Wronged" sensitive volume4 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Four_Title.ogg")
                     
                 # Volume 5 image changes if the player has actually started Polypa's route. If they haven't, she's in disguise. Makes for a fun little surprise.
                 # FOR THOSE OF YOU WHO DON'T IMMEDIATELY GO DIGGING INTO THE FILES, THAT IS
@@ -1042,22 +1042,22 @@ screen vol_select():
                     
                     if persistent.polypareveal:
                     
-                        imagebutton auto "gui/volumefive2_%s.png" action Jump("volumefive") alt "Volume Five: Of Affection, Unwanted Or Untrue" sensitive volume5
+                        imagebutton auto "gui/volumefive2_%s.png" action Jump("volumefive") alt "Volume Five: Of Affection, Unwanted Or Untrue" sensitive volume5 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Five_Title.ogg")
                     
                     else:
                     
-                        imagebutton auto "gui/volumefive1_%s.png" action Jump("volumefive") alt "Volume Five: Of Affection, Unwanted Or Untrue" sensitive volume5
+                        imagebutton auto "gui/volumefive1_%s.png" action Jump("volumefive") alt "Volume Five: Of Affection, Unwanted Or Untrue" sensitive volume5 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Five_Title.ogg")
                 
                 if volume6:
 
-                    imagebutton auto "gui/volumesix_%s.png" action Jump("volumesix") alt "Volume Six: Of Text And Envy, Green" sensitive volume6
+                    imagebutton auto "gui/volumesix_%s.png" action Jump("volumesix") alt "Volume Six: Of Text And Envy, Green" sensitive volume6 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Six_Title.ogg")
  
                 if volume7:
 
-                    imagebutton auto "gui/volumeseven_%s.png" action Jump("volumeseven") alt "Volume Seven: Of Business, Flagrantly Illegal" sensitive volume7
+                    imagebutton auto "gui/volumeseven_%s.png" action Jump("volumeseven") alt "Volume Seven: Of Business, Flagrantly Illegal" sensitive volume7 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Seven_Title.ogg")
                     
                 if volume8:
-                    imagebutton auto "gui/volumeeight_%s.png" action Jump("volumeeight") alt "Volume Eight: Of Stresses, Song And Otherwise" sensitive volume8
+                    imagebutton auto "gui/volumeeight_%s.png" action Jump("volumeeight") alt "Volume Eight: Of Stresses, Song And Otherwise" sensitive volume8 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Eight_Title.ogg")
                 
                 # Guess who's doing this shit again LOL
                 
@@ -1065,41 +1065,41 @@ screen vol_select():
                     
                     if persistent.chahutreveal:
                     
-                        imagebutton auto "gui/volumenine2_%s.png" action Jump("volumenine") alt "Volume Nine: Of Gazes Cool And Tempers Hot" sensitive volume9
+                        imagebutton auto "gui/volumenine2_%s.png" action Jump("volumenine") alt "Volume Nine: Of Gazes Cool And Tempers Hot" sensitive volume9 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Nine_Title.ogg")
                     
                     else:
                     
-                        imagebutton auto "gui/volumenine1_%s.png" action Jump("volumenine") alt "Volume Nine: Of Gazes Cool And Tempers Hot" sensitive volume9
+                        imagebutton auto "gui/volumenine1_%s.png" action Jump("volumenine") alt "Volume Nine: Of Gazes Cool And Tempers Hot" sensitive volume9 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Nine_Title.ogg")
                         
                 if volume10:
-                    imagebutton auto "gui/volumeten_%s.png" action Jump("volumeten") alt "Volume Ten: Of Faraway Lands And Nearby Friends" sensitive volume10
+                    imagebutton auto "gui/volumeten_%s.png" action Jump("volumeten") alt "Volume Ten: Of Faraway Lands And Nearby Friends" sensitive volume10 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Ten_Title.ogg")
 
                 if volume11:
-                    imagebutton auto "gui/volumeeleven_%s.png" action Jump("volumeeleven") alt "Volume Eleven: Of Pals And Promises, Made And Broken" sensitive volume11
+                    imagebutton auto "gui/volumeeleven_%s.png" action Jump("volumeeleven") alt "Volume Eleven: Of Pals And Promises, Made And Broken" sensitive volume11 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Eleven_Title.ogg")
                     
                 if volume12:
-                    imagebutton auto "gui/volumetwelve_%s.png" action Jump("volumetwelve") alt "Volume Twelve: Of Know-Nothings And Know-It-Alls" sensitive volume12
+                    imagebutton auto "gui/volumetwelve_%s.png" action Jump("volumetwelve") alt "Volume Twelve: Of Know-Nothings And Know-It-Alls" sensitive volume12 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Twelve_Title.ogg")
 
                 if volume13:
-                    imagebutton auto "gui/volumethirteen_%s.png" action Jump("volumethirteen") alt "Volume Thirteen: Of Fate, Fashion, And Fortune" sensitive volume13
+                    imagebutton auto "gui/volumethirteen_%s.png" action Jump("volumethirteen") alt "Volume Thirteen: Of Fate, Fashion, And Fortune" sensitive volume13 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Thirteen_Title.ogg")
 
                 if volume14:
-                    imagebutton auto "gui/volumefourteen_%s.png" action Jump("volumefourteen") alt "Volume Fourteen: Of Cleanliness And Clownliness" sensitive volume14
+                    imagebutton auto "gui/volumefourteen_%s.png" action Jump("volumefourteen") alt "Volume Fourteen: Of Cleanliness And Clownliness" sensitive volume14 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Fourteen_Title.ogg")
 
                 if volume15:
-                    imagebutton auto "gui/volumefifteen_%s.png" action Jump("volumefifteen") alt "Volume Fifteen: Of Creatives, Conventional Or Otherwise" sensitive volume15
+                    imagebutton auto "gui/volumefifteen_%s.png" action Jump("volumefifteen") alt "Volume Fifteen: Of Creatives, Conventional Or Otherwise" sensitive volume15 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Fifteen_Title.ogg")
 
                 if volume16:
-                    imagebutton auto "gui/volumesixteen_%s.png" action Jump("volumesixteen") alt "Volume Sixteen: Of Cult- And Capt-ivation" sensitive volume16
+                    imagebutton auto "gui/volumesixteen_%s.png" action Jump("volumesixteen") alt "Volume Sixteen: Of Cult- And Capt-ivation" sensitive volume16 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Sixteen_Title.ogg")
 
                 if volume17:
-                    imagebutton auto "gui/volumeseventeen_%s.png" action Jump("volumeseventeen") alt "Volume Seventeen: Of Teen And Tech, Acerbic" sensitive volume17
+                    imagebutton auto "gui/volumeseventeen_%s.png" action Jump("volumeseventeen") alt "Volume Seventeen: Of Teen And Tech, Acerbic" sensitive volume17 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Seventeen_Title.ogg")
 
                 if volume18:
-                    imagebutton auto "gui/volumeeighteen_%s.png" action Jump("volumeeighteen") alt "Volume Eighteen" sensitive volume18
+                    imagebutton auto "gui/volumeeighteen_%s.png" action Jump("volumeeighteen") alt "Volume Eighteen" sensitive volume18 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Eighteen_Title.ogg")
                 
                 if persistent.epilogue == volume18 == True:
-                    imagebutton auto "gui/epilogue_%s.png" action Jump("epilogue") alt "Epilogue: Of Hosts, Excellent" sensitive persistent.epilogue
+                    imagebutton auto "gui/epilogue_%s.png" action Jump("epilogue") alt "Epilogue: Of Hosts, Excellent" sensitive persistent.epilogue hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Epilogue_Title.ogg")
 
 
                 # For locked volumes: We show the DLC screen, which takes two arguments after the default arguments.
