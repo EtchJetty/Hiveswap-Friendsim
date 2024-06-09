@@ -32,7 +32,7 @@ screen main_menu():
     
     imagebutton auto "gui/title_%s.png" action Confirm(_("Unlock {i}all{/i} Hiveswap Friendsim achievements?{size=18}{color=#929292}\n\n(This will unlock all volumes, but will also\nspoil the route endings!){/color}{/size}"), Function(all_ach2)) pos (20, 20) at wigglenew alt _("Hive swap friend sim")
     
-    imagebutton auto "gui/start_%s.png" action Start("start") pos (20, 345) at menumove alt _("Start")
+    imagebutton auto "gui/start_%s.png" action Start("start") pos (20, 345) at menumove alt _("Start") hovered PlayCharacterVoice("narrator", "voice/hover/Menu_Start.ogg")
     imagebutton auto "gui/load_%s.png" action ShowMenu('load') pos (20, 405) at menumove alt _("Load")
     imagebutton auto "gui/options_%s.png" action ShowMenu('preferences') pos (20, 465) at menumove alt _("Options")
     imagebutton auto "gui/friends_%s.png" action ShowMenu('achievements') pos (20, 525) at menumove alt _("Friends")
