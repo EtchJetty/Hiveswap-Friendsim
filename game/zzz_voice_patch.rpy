@@ -32,12 +32,12 @@ screen main_menu():
     
     imagebutton auto "gui/title_%s.png" action Confirm(_("Unlock {i}all{/i} Hiveswap Friendsim achievements?{size=18}{color=#929292}\n\n(This will unlock all volumes, but will also\nspoil the route endings!){/color}{/size}"), Function(all_ach2)) pos (20, 20) at wigglenew alt _("Hive swap friend sim")
     
-    imagebutton auto "gui/start_%s.png" action Start("start") pos (20, 345) at menumove alt _("Start") hovered PlayCharacterVoice("narrator", "voice/hover/Menu_Start.ogg")
-    imagebutton auto "gui/load_%s.png" action ShowMenu('load') pos (20, 405) at menumove alt _("Load")
-    imagebutton auto "gui/options_%s.png" action ShowMenu('preferences') pos (20, 465) at menumove alt _("Options")
-    imagebutton auto "gui/friends_%s.png" action ShowMenu('achievements') pos (20, 525) at menumove alt _("Friends")
-    imagebutton auto "gui/credits_%s.png" action ShowMenu('about') pos (20, 585) at menumove alt _("Credits") 
-    imagebutton auto "gui/exit_%s.png" action Quit(confirm=not main_menu) pos (20, 645) at menumove alt _("Exit")
+    imagebutton auto "gui/start_%s.png" action Start("start") pos (20, 345) at menumove alt _("Start") hovered PlayCharacterVoice("menunarrator", "voice/hover/Menu_Start.ogg")
+    imagebutton auto "gui/load_%s.png" action ShowMenu('load') pos (20, 405) at menumove alt _("Load") hovered PlayCharacterVoice("menunarrator", "voice/hover/Menu_Load.ogg")
+    imagebutton auto "gui/options_%s.png" action ShowMenu('preferences') pos (20, 465) at menumove alt _("Options") hovered PlayCharacterVoice("menunarrator", "voice/hover/Menu_Options.ogg")
+    imagebutton auto "gui/friends_%s.png" action ShowMenu('achievements') pos (20, 525) at menumove alt _("Friends") hovered PlayCharacterVoice("menunarrator", "voice/hover/Menu_Friends.ogg")
+    imagebutton auto "gui/credits_%s.png" action ShowMenu('about') pos (20, 585) at menumove alt _("Credits") hovered PlayCharacterVoice("menunarrator", "voice/hover/Menu_Credits.ogg")
+    imagebutton auto "gui/exit_%s.png" action Quit(confirm=not main_menu) pos (20, 645) at menumove alt _("Exit") hovered PlayCharacterVoice("menunarrator", "voice/hover/Menu_Exit.ogg")
 
     textbutton config.version action Confirm(_("Remove ALL achievements?{size=18}{color=#929292}\n\n(This effectively resets your entire save!){/color}{/size}"), Function(ach2_clearall)) pos (975, 675) #style "versionnum"
 
@@ -703,6 +703,7 @@ screen voices():
 
                     style_prefix "radio"
                     label _("Minor Characters")
+                    textbutton _("Menu Narration") action ToggleVoiceMute("menunarrator", True)
                     textbutton _("Journo") action ToggleVoiceMute("journo", True)
                     textbutton _("Purple") action ToggleVoiceMute("purple", True)
                     textbutton _("Smuggler") action ToggleVoiceMute("smuggler", True)
@@ -1020,7 +1021,7 @@ screen vol_select():
                     
                 # Volume one is always available.
         
-                imagebutton auto "gui/volumeone_%s.png" action Jump("volumeone") alt _("Volume One: Of Bloodthirst And Bratwurst") sensitive volume1
+                imagebutton auto "gui/volumeone_%s.png" action Jump("volumeone") alt _("Volume One: Of Bloodthirst And Bratwurst") sensitive volume1 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_One_Title.ogg")
                 
                 if volume2:
                     
