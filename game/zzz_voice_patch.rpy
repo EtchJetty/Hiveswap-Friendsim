@@ -1297,7 +1297,7 @@ screen choice(items):
 
     vbox:
         for i in items: 
-            if renpy.loadable(f"voice/hover/{i.caption}.ogg"):
-                textbutton i.caption action i.action hovered PlayCharacterVoice("narrator", f"voice/hover/{i.caption}.ogg")
+            if renpy.loadable("voice/hover/"+ i.caption + ".ogg"):
+                textbutton i.caption action i.action hovered PlayCharacterVoice("narrator", "voice/hover/"+ i.caption + ".ogg")
             else: 
                 textbutton i.caption action i.action                
