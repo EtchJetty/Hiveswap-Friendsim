@@ -150,7 +150,65 @@ screen about():
 
             hbox:
                 text "ETCHJETTY" text_align 0.0 min_width 440
-                text "Technical Director" text_align 1.0 
+                text "Technical Director, Casting Director" text_align 1.0 
+
+
+            text "VOICE ACTORS" text_align 0.5 color gui.accent_color size 30
+            hbox:
+                text "MELANIE J ARCHER" text_align 0.0 min_width 440
+                text "MSPAR, Menu Narration" text_align 1.0 
+
+            hbox:
+                text "JOSEPHINE KIM" text_align 0.0 min_width 440
+                text "Ardata" text_align 1.0 
+
+            hbox:
+                text "HOPEYMAGE" text_align 0.0 min_width 440
+                text "Diemen" text_align 1.0 
+
+            hbox:
+                text "YEAGRIMBO" text_align 0.0 min_width 440
+                text "Cirava" text_align 1.0 
+
+            hbox:
+                text "VYN VOX" text_align 0.0 min_width 440
+                text "Amisia" text_align 1.0 
+
+            hbox:
+                text "IMMUTABLEMUTIE" text_align 0.0 min_width 440
+                text "Bronya" text_align 1.0 
+
+            hbox:
+                text "DARE0451" text_align 0.0 min_width 440
+                text "Skylla, Elwurd" text_align 1.0 
+
+            hbox:
+                text "MISTERJEROME" text_align 0.0 min_width 440
+                text "Tagora" text_align 1.0 
+
+            hbox:
+                text "TGVELVET" text_align 0.0 min_width 440
+                text "Galekh" text_align 1.0 
+
+            hbox:
+                text "ZAPPYMAKESART" text_align 0.0 min_width 440
+                text "Vikare" text_align 1.0 
+
+            hbox:
+                text "KALKORY" text_align 0.0 min_width 440
+                text "Polypa" text_align 1.0 
+
+            hbox:
+                text "FLINN UVMOCK" text_align 0.0 min_width 440
+                text "Zebruh" text_align 1.0 
+
+            hbox:
+                text "PINKIIPROXII" text_align 0.0 min_width 440
+                text "Folykl" text_align 1.0 
+
+            hbox:
+                text "HISONOKAMI" text_align 0.0 min_width 440
+                text "Kuprum" text_align 1.0 
 
             bar base_bar "#66cc00"
 
@@ -703,12 +761,12 @@ screen voices():
 
                     style_prefix "radio"
                     label _("Minor Characters")
-                    textbutton _("Menu Narration") action ToggleVoiceMute("menunarrator", True)
                     textbutton _("Journo") action ToggleVoiceMute("journo", True)
                     textbutton _("Purple") action ToggleVoiceMute("purple", True)
                     textbutton _("Smuggler") action ToggleVoiceMute("smuggler", True)
                     textbutton _("Tagora+Tyzias") action ToggleVoiceMute("tagoratyzias", True)
                     textbutton _("Nufren") action ToggleVoiceMute("nufren", True)
+                    textbutton _("Menu Narration") action ToggleVoiceMute("menunarrator", True)
 
 
 
