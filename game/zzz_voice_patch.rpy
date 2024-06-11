@@ -30,7 +30,7 @@ screen main_menu():
     add gui.main_menu_background# :
         # nearest True 
     
-    imagebutton auto "gui/title_%s.png" action Confirm(_("Unlock {i}all{/i} Hiveswap Friendsim achievements?{size=18}{color=#929292}\n\n(This will unlock all volumes, but will also\nspoil the route endings!){/color}{/size}"), Function(all_ach2)) pos (20, 20) at wigglenew alt _("Hive swap friend sim")
+    imagebutton auto "gui/title_%s.png" action Confirm(_("Unlock {i}all{/i} Hiveswap Friendsim achievements?{size=18}{color=#929292}\n\n(This will unlock all volumes, but will also\nspoil the route endings!){/color}{/size}"), Function(all_ach2)) pos (20, 20) at wigglenew alt _("Hive swap friend sim") hovered PlayCharacterVoice("menunarrator", "voice/hover/Menu_Hiveswap_Friendsim.ogg")
     
     imagebutton auto "gui/start_%s.png" action Start("start") pos (20, 345) at menumove alt _("Start") hovered PlayCharacterVoice("menunarrator", "voice/hover/Menu_Start.ogg")
     imagebutton auto "gui/load_%s.png" action ShowMenu('load') pos (20, 405) at menumove alt _("Load") hovered PlayCharacterVoice("menunarrator", "voice/hover/Menu_Load.ogg")
