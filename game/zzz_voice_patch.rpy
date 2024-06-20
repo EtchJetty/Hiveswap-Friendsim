@@ -1267,89 +1267,89 @@ init -5 python:
 
 screen troll_select1():
     
-    imagebutton auto "images/charselect/ardata_button_%s.png" action Jump("ardata") pos (0, 0) alt _("Ardata Carmia") hovered PlayCharacterVoice("narrator", "voice/hover/Volume_1_Ardata_Select.ogg")
-    imagebutton auto "images/charselect/diemen_button_%s.png" action Jump("diemen") pos (640, 0) alt _("Diemen Xicali") hovered PlayCharacterVoice("narrator", "voice/hover/Volume_1_Diemen_Select.ogg")
+    imagebutton auto "images/charselect/ardata_button_%s.png" action Jump("ardata") pos (0, 0) alt _("Ardata Carmia") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/ardata.ogg")# "voice/hover/Volume_1_Ardata_Select.ogg")
+    imagebutton auto "images/charselect/diemen_button_%s.png" action Jump("diemen") pos (640, 0) alt _("Diemen Xicali") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/diemen.ogg")# "voice/hover/Volume_1_Diemen_Select.ogg")
     
 screen troll_select2():
     
-    imagebutton auto "volumes/volume2/images/charselect/amisia_button_%s.png" action Jump("amisia") pos (0, 0) alt _("Amisia Erdehn") 
-    imagebutton auto "volumes/volume2/images/charselect/cirava_button_%s.png" action Jump("cirava") pos (640, 0) alt _("Cirava Hermod") 
+    imagebutton auto "volumes/volume2/images/charselect/amisia_button_%s.png" action Jump("amisia") pos (0, 0) alt _("Amisia Erdehn") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/amisia.ogg")
+    imagebutton auto "volumes/volume2/images/charselect/cirava_button_%s.png" action Jump("cirava") pos (640, 0) alt _("Cirava Hermod") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/cirava.ogg")
     
 screen troll_select3():
     
-    imagebutton auto "volumes/volume3/images/charselect/skylla_button_%s.png" action Jump("skylla") pos (0, 0) alt _("Skylla Koriga") 
-    imagebutton auto "volumes/volume3/images/charselect/bronya_button_%s.png" action Jump("bronya") pos (640, 0) alt _("Bronya Ursama") 
+    imagebutton auto "volumes/volume3/images/charselect/skylla_button_%s.png" action Jump("skylla") pos (0, 0) alt _("Skylla Koriga") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/skylla.ogg")
+    imagebutton auto "volumes/volume3/images/charselect/bronya_button_%s.png" action Jump("bronya") pos (640, 0) alt _("Bronya Ursama") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/bronya.ogg")
     
 screen troll_select4():
     
-    imagebutton auto "volumes/volume4/images/charselect/tagora_button_%s.png" action Jump("tagora") pos (0, 0) alt _("Tagora Gorjek") 
-    imagebutton auto "volumes/volume4/images/charselect/vikare_button_%s.png" action Jump("vikare") pos (640, 0) alt _("Vikare Ratite") 
+    imagebutton auto "volumes/volume4/images/charselect/tagora_button_%s.png" action Jump("tagora") pos (0, 0) alt _("Tagora Gorjek") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/tagora.ogg")
+    imagebutton auto "volumes/volume4/images/charselect/vikare_button_%s.png" action Jump("vikare") pos (640, 0) alt _("Vikare Ratite") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/vikare.ogg")
     
 screen troll_select5():
     
     if persistent.polypareveal:
-        imagebutton auto "volumes/volume5/images/charselect/polypa2_button_%s.png" action Jump("polypa") pos (0, 0) alt _("Polypa Goezee") 
+        imagebutton auto "volumes/volume5/images/charselect/polypa2_button_%s.png" action Jump("polypa") pos (0, 0) alt _("Polypa Goezee") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/polypa.ogg")
     else:
         imagebutton auto "volumes/volume5/images/charselect/polypa1_button_%s.png" action Jump("polypa") pos (0, 0) alt _("??????")   
         
-    imagebutton auto "volumes/volume5/images/charselect/zebruh_button_%s.png" action Jump("zebruh") pos (640, 0) alt _("Zebruh Codakk") 
+    imagebutton auto "volumes/volume5/images/charselect/zebruh_button_%s.png" action Jump("zebruh") pos (640, 0) alt _("Zebruh Codakk") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/zebruh.ogg")
 
 screen troll_select6():
-    imagebutton auto "volumes/volume6/images/charselect/elwurd_button_%s.png" action Jump("elwurd") pos (0, 0) alt _("Elwurd") 
-    imagebutton auto "volumes/volume6/images/charselect/kuprum_button_%s.png" action Jump("folyklkuprum") pos (640, 0) alt _("Kuprum and Folykl") 
+    imagebutton auto "volumes/volume6/images/charselect/elwurd_button_%s.png" action Jump("elwurd") pos (0, 0) alt _("Elwurd") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/elwurd.ogg")
+    imagebutton auto "volumes/volume6/images/charselect/kuprum_button_%s.png" action Jump("folyklkuprum") pos (640, 0) alt _("Kuprum and Folykl") # hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/kuprumfolykl.ogg")
     
 screen troll_select7():
-    imagebutton auto "volumes/volume7/images/charselect/remele_button_%s.png" action Jump("remele") pos (0, 0) alt _("Remele Namaaq") 
-    imagebutton auto "volumes/volume7/images/charselect/konyyl_button_%s.png" action Jump("konyyl") pos (640, 0) alt _("Konyyl Okimaw") 
+    imagebutton auto "volumes/volume7/images/charselect/remele_button_%s.png" action Jump("remele") pos (0, 0) alt _("Remele Namaaq") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/remele.ogg")
+    imagebutton auto "volumes/volume7/images/charselect/konyyl_button_%s.png" action Jump("konyyl") pos (640, 0) alt _("Konyyl Okimaw") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/konyyl.ogg")
 
 screen troll_select8():
-    imagebutton auto "volumes/volume8/images/charselect/tyzias_button_%s.png" action Jump("tyzias") pos (0, 0) alt _("Tyzias Entykk") 
-    imagebutton auto "volumes/volume8/images/charselect/chixie_button_%s.png" action Jump("chixie") pos (640, 0) alt _("Chixie Roixmr") 
+    imagebutton auto "volumes/volume8/images/charselect/tyzias_button_%s.png" action Jump("tyzias") pos (0, 0) alt _("Tyzias Entykk") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/tyzias.ogg")
+    imagebutton auto "volumes/volume8/images/charselect/chixie_button_%s.png" action Jump("chixie") pos (640, 0) alt _("Chixie Roixmr") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/chixie.ogg")
 
 screen troll_select9():
     
-    imagebutton auto "volumes/volume9/images/charselect/azdaja_button_%s.png" action Jump("azdaja") pos (0, 0) alt _("Azdaja Knelax") 
+    imagebutton auto "volumes/volume9/images/charselect/azdaja_button_%s.png" action Jump("azdaja") pos (0, 0) alt _("Azdaja Knelax") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/azdaja.ogg")
     
     if persistent.chahutreveal:
-        imagebutton auto "volumes/volume9/images/charselect/chahut_button_%s.png" action Jump("chahut") pos (640, 0) alt _("Chahut Maenad") 
+        imagebutton auto "volumes/volume9/images/charselect/chahut_button_%s.png" action Jump("chahut") pos (640, 0) alt _("Chahut Maenad") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/chahut.ogg") 
     else:
-        imagebutton auto "volumes/volume9/images/charselect/amisia2_button_%s.png" action Jump("chahut") pos (640, 0) alt _("Amisia Erdehn?") 
+        imagebutton auto "volumes/volume9/images/charselect/amisia2_button_%s.png" action Jump("chahut") pos (640, 0) alt _("Amisia Erdehn?") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/amisia.ogg") 
         
 screen troll_select10():
-    imagebutton auto "volumes/volume10/images/charselect/zebede_button_%s.png" action Jump("zebede") pos (0, 0) alt _("Zebede Tongva") 
-    imagebutton auto "volumes/volume10/images/charselect/tegiri_button_%s.png" action Jump("tegiri") pos (640, 0) alt _("Tegiri Kalbur") 
+    imagebutton auto "volumes/volume10/images/charselect/zebede_button_%s.png" action Jump("zebede") pos (0, 0) alt _("Zebede Tongva") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/zebede.ogg")
+    imagebutton auto "volumes/volume10/images/charselect/tegiri_button_%s.png" action Jump("tegiri") pos (640, 0) alt _("Tegiri Kalbur") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/tegiri.ogg")
 
 screen troll_select11():
-    imagebutton auto "volumes/volume11/images/charselect/mallek_button_%s.png" action Jump("mallek") pos (0, 0) alt _("Mallek Adalov") 
-    imagebutton auto "volumes/volume11/images/charselect/lynera_button_%s.png" action Jump("lynera") pos (640, 0) alt _("Lynera Skalbi") 
+    imagebutton auto "volumes/volume11/images/charselect/mallek_button_%s.png" action Jump("mallek") pos (0, 0) alt _("Mallek Adalov") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/mallek.ogg")
+    imagebutton auto "volumes/volume11/images/charselect/lynera_button_%s.png" action Jump("lynera") pos (640, 0) alt _("Lynera Skalbi") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/lynera.ogg")
     
 screen troll_select12():
-    imagebutton auto "volumes/volume12/images/charselect/galekh_button_%s.png" action Jump("galekh") pos (0, 0) alt _("Galekh Xigisi") 
-    imagebutton auto "volumes/volume12/images/charselect/tirona_button_%s.png" action Jump("tirona") pos (640, 0) alt _("Tirona Kasund") 
+    imagebutton auto "volumes/volume12/images/charselect/galekh_button_%s.png" action Jump("galekh") pos (0, 0) alt _("Galekh Xigisi") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/galekh.ogg")
+    imagebutton auto "volumes/volume12/images/charselect/tirona_button_%s.png" action Jump("tirona") pos (640, 0) alt _("Tirona Kasund") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/tirona.ogg")
 
 screen troll_select13():
-    imagebutton auto "volumes/volume13/images/charselect/boldir_button_%s.png" action Jump("boldir") pos (0, 0) alt _("Boldir Lamati") 
-    imagebutton auto "volumes/volume13/images/charselect/stelsa_button_%s.png" action Jump("stelsa") pos (640, 0) alt _("Stelsa Sezyat") 
+    imagebutton auto "volumes/volume13/images/charselect/boldir_button_%s.png" action Jump("boldir") pos (0, 0) alt _("Boldir Lamati") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/boldir.ogg")
+    imagebutton auto "volumes/volume13/images/charselect/stelsa_button_%s.png" action Jump("stelsa") pos (640, 0) alt _("Stelsa Sezyat") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/stelsa.ogg")
 
 screen troll_select14():
-    imagebutton auto "volumes/volume14/images/charselect/marsti_button_%s.png" action Jump("marsti") pos (0, 0) alt _("Marsti Houtek") 
-    imagebutton auto "volumes/volume14/images/charselect/karako_button_%s.png" action Jump("karako") pos (640, 0) alt _("Karako Pierot") 
+    imagebutton auto "volumes/volume14/images/charselect/marsti_button_%s.png" action Jump("marsti") pos (0, 0) alt _("Marsti Houtek") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/marsti.ogg")
+    imagebutton auto "volumes/volume14/images/charselect/karako_button_%s.png" action Jump("karako") pos (640, 0) alt _("Karako Pierot") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/karako.ogg")
 
 screen troll_select15():
-    imagebutton auto "volumes/volume15/images/charselect/charun_button_%s.png" action Jump("charun") pos (0, 0) alt _("Charun Krojib") 
-    imagebutton auto "volumes/volume15/images/charselect/wanshi_button_%s.png" action Jump("wanshi") pos (640, 0) alt _("Wanshi Adyata") 
+    imagebutton auto "volumes/volume15/images/charselect/charun_button_%s.png" action Jump("charun") pos (0, 0) alt _("Charun Krojib") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/charun.ogg")
+    imagebutton auto "volumes/volume15/images/charselect/wanshi_button_%s.png" action Jump("wanshi") pos (640, 0) alt _("Wanshi Adyata") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/wanshi.ogg")
 
 screen troll_select16():
-    imagebutton auto "volumes/volume16/images/charselect/fozzer_button_%s.png" action Jump("fozzer") pos (0, 0) alt _("Fozzer Velyes") 
-    imagebutton auto "volumes/volume16/images/charselect/marvus_button_%s.png" action Jump("marvus") pos (640, 0) alt _("Marvus Xoloto") 
+    imagebutton auto "volumes/volume16/images/charselect/fozzer_button_%s.png" action Jump("fozzer") pos (0, 0) alt _("Fozzer Velyes") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/fozzer.ogg")
+    imagebutton auto "volumes/volume16/images/charselect/marvus_button_%s.png" action Jump("marvus") pos (640, 0) alt _("Marvus Xoloto") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/marvus.ogg")
 
 screen troll_select17():
-    imagebutton auto "volumes/volume17/images/charselect/daraya_button_%s.png" action Jump("daraya") pos (0, 0) alt _("Daraya Jonjet") 
-    imagebutton auto "volumes/volume17/images/charselect/nihkee_button_%s.png" action Jump("nihkee_fix") pos (640, 0) alt _("Nihkee Moolah") 
+    imagebutton auto "volumes/volume17/images/charselect/daraya_button_%s.png" action Jump("daraya") pos (0, 0) alt _("Daraya Jonjet") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/daraya.ogg")
+    imagebutton auto "volumes/volume17/images/charselect/nihkee_button_%s.png" action Jump("nihkee_fix") pos (640, 0) alt _("Nihkee Moolah") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/nihkee.ogg")
 
 screen troll_select18():
-    imagebutton auto "volumes/volume18/images/charselect/lanque_button_%s.png" action Jump("lanque") pos (0, 0) alt _("Lanque Bombyx") 
-    imagebutton auto "volumes/volume18/images/charselect/soleil_button_%s.png" action Jump("soleil") pos (640, 0) alt _("Barzum & Bazili") 
+    imagebutton auto "volumes/volume18/images/charselect/lanque_button_%s.png" action Jump("lanque") pos (0, 0) alt _("Lanque Bombyx") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/lanque.ogg")
+    imagebutton auto "volumes/volume18/images/charselect/soleil_button_%s.png" action Jump("soleil") pos (640, 0) alt _("Barzum & Bazili") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/baizbaz.ogg")
 
 screen choice(items):
     style_prefix "choice"
