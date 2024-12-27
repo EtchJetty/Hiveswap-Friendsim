@@ -3146,3 +3146,4 @@ renpy/uguu/angle.pyx
 renpy/uguu/gl.pxd
 renpy/uguu/gl.pyx
 renpy/uguu/uguu.pyx
+game/renpy_warp*.py
