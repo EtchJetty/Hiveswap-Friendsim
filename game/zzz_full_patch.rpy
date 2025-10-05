@@ -1,4 +1,6 @@
-# COPY PASTE CONTENTS OF ALL 3 PATCH FILES HERE
+# HOW TO USE THIS FANPATCH:
+# Paste this into your Hiveswap Friendsim/game folder, right next to the other .rpy and .rpyc files!
+# You'll know it works if you see "FANPATCH PRE_0.01" on the main menu.
 
 define config.has_voice = False
 define config.auto_voice = "voice/{id}.ogg"
@@ -1094,7 +1096,7 @@ define WHO = Character("???", kind=baiz)
 define wHo = Character("???", kind=barz, what_xalign=0.5, what_text_align=0.5, what_xpos=0.5)
 define WhO = Character("???", kind=baiz, what_xalign=0.5, what_text_align=0.5, what_xpos=0.5)
 
-define o = Character("", color='#FFFFFF', what_color="#000000", image="scratch", window_background=Transform("gui/textbox_purple.png",matrixcolor=InvertMatrix(1.0)),voice_tag="scratch")
+define o = Character("", color='#FFFFFF', what_color="#000000", image="scratch", window_background=Transform("gui/textbox_purple.png",matrixcolor=SaturationMatrix(0.0) * InvertMatrix(1.0)),voice_tag="scratch")
 define s = Character("", kind=narrator, color='#FFFFFF', what_color="#FFFFFF", image="scratch", window_background=Transform("gui/textbox_narration.png",matrixcolor=InvertMatrix(1.0)),voice_tag="scratch")
 
 define reader = Character("", color='#FFFFFF', image="reader", window_background=Transform("gui/textbox_purple.png",matrixcolor=SaturationMatrix(0.0)), voice_tag="narrator")
