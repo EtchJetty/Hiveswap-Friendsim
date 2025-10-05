@@ -1,9 +1,35 @@
-define config.has_voice = True
-define config.auto_voice = "voice/{id}.ogg"
+define config.has_voice = False
+# define config.auto_voice = "voice/{id}.ogg"
 default persistent.quickmenu = True 
 define config.developer = True 
-define config.version = "VOICE FANPATCH PRE_0.01"
+# define config.version = "VOICE FANPATCH PRE_0.01"
+define config.version = "FANPATCH PRE_0.01"
 define gui.history_height = None
+
+default persistent.understand = False 
+default persistent.polypareveal = False
+default persistent.chahutreveal = False  
+default persistent.epilogue = False 
+
+default persistent.volume1 = False
+default persistent.volume2 = False
+default persistent.volume3 = False
+default persistent.volume4 = False
+default persistent.volume5 = False
+default persistent.volume6 = False
+default persistent.volume7 = False
+default persistent.volume8 = False
+default persistent.volume9 = False
+default persistent.volume10 = False
+default persistent.volume11 = False
+default persistent.volume12 = False
+default persistent.volume13 = False
+default persistent.volume14 = False
+default persistent.volume15 = False
+default persistent.volume16 = False
+default persistent.volume17 = False
+default persistent.volume18r1 = False
+default persistent.volume18r2 = False
 
 transform wigglenew:
     
@@ -18,7 +44,7 @@ transform wigglenew:
         linear .1 rotate 2
         linear .1 rotate 0
     on idle: 
-       alpha 1.0 
+        alpha 1.0 
 
 screen main_menu():
 
@@ -30,14 +56,24 @@ screen main_menu():
     add gui.main_menu_background# :
         # nearest True 
     
-    imagebutton auto "gui/title_%s.png" action Confirm(_("Unlock {i}all{/i} Hiveswap Friendsim achievements?{size=18}{color=#929292}\n\n(This will unlock all volumes, but will also\nspoil the route endings!){/color}{/size}"), Function(all_ach2)) pos (20, 20) at wigglenew alt _("Hive swap friend sim") hovered PlayCharacterVoice("menunarrator", "voice/hover/Menu_Hiveswap_Friendsim.ogg")
-    
-    imagebutton auto "gui/start_%s.png" action Start("start") pos (20, 345) at menumove alt _("Start") hovered PlayCharacterVoice("menunarrator", "voice/hover/Menu_Start.ogg")
-    imagebutton auto "gui/load_%s.png" action ShowMenu('load') pos (20, 405) at menumove alt _("Load") hovered PlayCharacterVoice("menunarrator", "voice/hover/Menu_Load.ogg")
-    imagebutton auto "gui/options_%s.png" action ShowMenu('preferences') pos (20, 465) at menumove alt _("Options") hovered PlayCharacterVoice("menunarrator", "voice/hover/Menu_Options.ogg")
-    imagebutton auto "gui/friends_%s.png" action ShowMenu('achievements') pos (20, 525) at menumove alt _("Friends") hovered PlayCharacterVoice("menunarrator", "voice/hover/Menu_Friends.ogg")
-    imagebutton auto "gui/credits_%s.png" action ShowMenu('about') pos (20, 585) at menumove alt _("Credits") hovered PlayCharacterVoice("menunarrator", "voice/hover/Menu_Credits.ogg")
-    imagebutton auto "gui/exit_%s.png" action Quit(confirm=not main_menu) pos (20, 645) at menumove alt _("Exit") hovered PlayCharacterVoice("menunarrator", "voice/hover/Menu_Exit.ogg")
+    if config.has_voice:
+        imagebutton auto "gui/title_%s.png" action Confirm(_("Unlock {i}all{/i} Hiveswap Friendsim achievements?{size=18}{color=#929292}\n\n(This will unlock all volumes, but will also\nspoil the route endings!){/color}{/size}"), Function(all_ach2)) pos (20, 20) at wigglenew alt _("Hive swap friend sim") hovered PlayCharacterVoice("menunarrator", "voice/hover/Menu_Hiveswap_Friendsim.ogg")
+        
+        imagebutton auto "gui/start_%s.png" action Start("start") pos (20, 345) at menumove alt _("Start") hovered PlayCharacterVoice("menunarrator", "voice/hover/Menu_Start.ogg")
+        imagebutton auto "gui/load_%s.png" action ShowMenu('load') pos (20, 405) at menumove alt _("Load") hovered PlayCharacterVoice("menunarrator", "voice/hover/Menu_Load.ogg")
+        imagebutton auto "gui/options_%s.png" action ShowMenu('preferences') pos (20, 465) at menumove alt _("Options") hovered PlayCharacterVoice("menunarrator", "voice/hover/Menu_Options.ogg")
+        imagebutton auto "gui/friends_%s.png" action ShowMenu('achievements') pos (20, 525) at menumove alt _("Friends") hovered PlayCharacterVoice("menunarrator", "voice/hover/Menu_Friends.ogg")
+        imagebutton auto "gui/credits_%s.png" action ShowMenu('about') pos (20, 585) at menumove alt _("Credits") hovered PlayCharacterVoice("menunarrator", "voice/hover/Menu_Credits.ogg")
+        imagebutton auto "gui/exit_%s.png" action Quit(confirm=not main_menu) pos (20, 645) at menumove alt _("Exit") hovered PlayCharacterVoice("menunarrator", "voice/hover/Menu_Exit.ogg")
+    else: 
+        imagebutton auto "gui/title_%s.png" action Confirm(_("Unlock {i}all{/i} Hiveswap Friendsim achievements?{size=18}{color=#929292}\n\n(This will unlock all volumes, but will also\nspoil the route endings!){/color}{/size}"), Function(all_ach2)) pos (20, 20) at wigglenew alt _("Hive swap friend sim") 
+        
+        imagebutton auto "gui/start_%s.png" action Start("start") pos (20, 345) at menumove alt _("Start") 
+        imagebutton auto "gui/load_%s.png" action ShowMenu('load') pos (20, 405) at menumove alt _("Load") 
+        imagebutton auto "gui/options_%s.png" action ShowMenu('preferences') pos (20, 465) at menumove alt _("Options") 
+        imagebutton auto "gui/friends_%s.png" action ShowMenu('achievements') pos (20, 525) at menumove alt _("Friends") 
+        imagebutton auto "gui/credits_%s.png" action ShowMenu('about') pos (20, 585) at menumove alt _("Credits")  
+        imagebutton auto "gui/exit_%s.png" action Quit(confirm=not main_menu) pos (20, 645) at menumove alt _("Exit") 
 
     textbutton config.version action Confirm(_("Remove ALL achievements?{size=18}{color=#929292}\n\n(This effectively resets your entire save!){/color}{/size}"), Function(ach2_clearall)) pos (975, 675) #style "versionnum"
 
@@ -141,76 +177,77 @@ screen about():
             
             spacing 14
             
-            text "HIVESWAP: FRIENDSHIP SIMULATOR" color gui.accent_color size 48
+            # text "HIVESWAP: FRIENDSHIP SIMULATOR" color gui.accent_color size 48
             text config.version text_align 0.5 color gui.accent_color size 40
-            text "DIRECTORS" text_align 0.5 color gui.accent_color size 30
-            hbox:
-                text "MELANIE J ARCHER" text_align 0.0 min_width 440
-                text "Voice/Project Lead, Casting Director" text_align 1.0 
+            # text "DIRECTORS" text_align 0.5 color gui.accent_color size 30
+            # hbox:
+            #     text "MELANIE J ARCHER" text_align 0.0 min_width 440
+            #     text "Voice/Project Lead, Casting Director" text_align 1.0 
 
             hbox:
                 text "ETCHJETTY" text_align 0.0 min_width 440
-                text "Technical Director, Casting Director" text_align 1.0 
+                # text "Technical Director, Casting Director" text_align 1.0 
+                text "Fanpatch Programmer" text_align 1.0 
 
 
-            text "VOICE ACTORS" text_align 0.5 color gui.accent_color size 30
-            hbox:
-                text "MELANIE J ARCHER" text_align 0.0 min_width 440
-                text "MSPAR, Menu Narration" text_align 1.0 
+            # text "VOICE ACTORS" text_align 0.5 color gui.accent_color size 30
+            # hbox:
+            #     text "MELANIE J ARCHER" text_align 0.0 min_width 440
+            #     text "MSPAR, Menu Narration" text_align 1.0 
 
-            hbox:
-                text "JOSEPHINE KIM" text_align 0.0 min_width 440
-                text "Ardata" text_align 1.0 
+            # hbox:
+            #     text "JOSEPHINE KIM" text_align 0.0 min_width 440
+            #     text "Ardata" text_align 1.0 
 
-            hbox:
-                text "HOPEYMAGE" text_align 0.0 min_width 440
-                text "Diemen" text_align 1.0 
+            # hbox:
+            #     text "HOPEYMAGE" text_align 0.0 min_width 440
+            #     text "Diemen" text_align 1.0 
 
-            hbox:
-                text "YEAGRIMBO" text_align 0.0 min_width 440
-                text "Cirava" text_align 1.0 
+            # hbox:
+            #     text "YEAGRIMBO" text_align 0.0 min_width 440
+            #     text "Cirava" text_align 1.0 
 
-            hbox:
-                text "VYN VOX" text_align 0.0 min_width 440
-                text "Amisia" text_align 1.0 
+            # hbox:
+            #     text "VYN VOX" text_align 0.0 min_width 440
+            #     text "Amisia" text_align 1.0 
 
-            hbox:
-                text "IMMUTABLEMUTIE" text_align 0.0 min_width 440
-                text "Bronya" text_align 1.0 
+            # hbox:
+            #     text "IMMUTABLEMUTIE" text_align 0.0 min_width 440
+            #     text "Bronya" text_align 1.0 
 
-            hbox:
-                text "DARE0451" text_align 0.0 min_width 440
-                text "Skylla, Elwurd" text_align 1.0 
+            # hbox:
+            #     text "DARE0451" text_align 0.0 min_width 440
+            #     text "Skylla, Elwurd" text_align 1.0 
 
-            hbox:
-                text "MISTERJEROME" text_align 0.0 min_width 440
-                text "Tagora" text_align 1.0 
+            # hbox:
+            #     text "MISTERJEROME" text_align 0.0 min_width 440
+            #     text "Tagora" text_align 1.0 
 
-            hbox:
-                text "TGVELVET" text_align 0.0 min_width 440
-                text "Galekh" text_align 1.0 
+            # hbox:
+            #     text "TGVELVET" text_align 0.0 min_width 440
+            #     text "Galekh" text_align 1.0 
 
-            hbox:
-                text "ZAPPYMAKESART" text_align 0.0 min_width 440
-                text "Vikare" text_align 1.0 
+            # hbox:
+            #     text "ZAPPYMAKESART" text_align 0.0 min_width 440
+            #     text "Vikare" text_align 1.0 
 
-            hbox:
-                text "KALKORY" text_align 0.0 min_width 440
-                text "Polypa" text_align 1.0 
+            # hbox:
+            #     text "KALKORY" text_align 0.0 min_width 440
+            #     text "Polypa" text_align 1.0 
 
-            hbox:
-                text "FLINN UVMOCK" text_align 0.0 min_width 440
-                text "Zebruh" text_align 1.0 
+            # hbox:
+            #     text "FLINN UVMOCK" text_align 0.0 min_width 440
+            #     text "Zebruh" text_align 1.0 
 
-            hbox:
-                text "PINKIIPROXII" text_align 0.0 min_width 440
-                text "Folykl" text_align 1.0 
+            # hbox:
+            #     text "PINKIIPROXII" text_align 0.0 min_width 440
+            #     text "Folykl" text_align 1.0 
 
-            hbox:
-                text "HISONOKAMI" text_align 0.0 min_width 440
-                text "Kuprum" text_align 1.0 
+            # hbox:
+            #     text "HISONOKAMI" text_align 0.0 min_width 440
+            #     text "Kuprum" text_align 1.0 
 
-            bar base_bar "#66cc00"
+            # bar base_bar "#66cc00"
 
             text "ORIGINAL CREDITS" color gui.accent_color size 40
             text "HIVESWAP: FRIENDSHIP SIMULATOR" color gui.accent_color size 48
@@ -1055,10 +1092,10 @@ define WHO = Character("???", kind=baiz)
 define wHo = Character("???", kind=barz, what_xalign=0.5, what_text_align=0.5, what_xpos=0.5)
 define WhO = Character("???", kind=baiz, what_xalign=0.5, what_text_align=0.5, what_xpos=0.5)
 
-define o = Character("", color='#FFFFFF', what_color="#000000", image="scratch", window_background=im.MatrixColor(im.Grayscale("/gui/textbox_purple.png"), im.matrix.invert()),voice_tag="scratch")
-define s = Character("", kind=narrator, color='#FFFFFF', what_color="#FFFFFF", image="scratch", window_background=im.MatrixColor("/gui/textbox_narration.png", im.matrix.invert()),voice_tag="scratch")
+define o = Character("", color='#FFFFFF', what_color="#000000", image="scratch", window_background=Transform("gui/textbox_purple.png",matrixcolor=InvertMatrix(1.0)),voice_tag="scratch")
+define s = Character("", kind=narrator, color='#FFFFFF', what_color="#FFFFFF", image="scratch", window_background=Transform("gui/textbox_narration.png",matrixcolor=InvertMatrix(1.0)),voice_tag="scratch")
 
-define reader = Character("", color='#FFFFFF', image="reader", window_background=im.Grayscale("/gui/textbox_purple.png"), voice_tag="narrator")
+define reader = Character("", color='#FFFFFF', image="reader", window_background=Transform("gui/textbox_purple.png",matrixcolor=SaturationMatrix(0.0)), voice_tag="narrator")
 
 define friendship = Character("", kind=op, what_outlines=[ (4, "#000000")], what_xalign=0.5, what_text_align=0.5,voice_tag="narrator")
 
@@ -1079,85 +1116,169 @@ screen vol_select():
                     
                 # Volume one is always available.
         
-                imagebutton auto "gui/volumeone_%s.png" action Jump("volumeone") alt _("Volume One: Of Bloodthirst And Bratwurst") sensitive volume1 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_One_Title.ogg")
-                
-                if volume2:
+                if config.has_voice:
+                    imagebutton auto "gui/volumeone_%s.png" action Jump("volumeone") alt _("Volume One: Of Bloodthirst And Bratwurst") sensitive volume1 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_One_Title.ogg")
                     
-                    imagebutton auto "gui/volumetwo_%s.png" action Jump("volumetwo") alt _("Volume Two: Of Aesthetics, Crimson And Otherwise") sensitive volume2 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Two_Title.ogg")
-                    
-                if volume3:
-                    
-                    imagebutton auto "gui/volumethree_%s.png" action Jump("volumethree") alt "Volume Three: Of Ladies Gray And Lusii White" sensitive volume3 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Three_Title.ogg")
-                    
-                if volume4:
-                    
-                    imagebutton auto "gui/volumefour_%s.png" action Jump("volumefour") alt "Volume Four: Of Wright And Wronged" sensitive volume4 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Four_Title.ogg")
-                    
-                # Volume 5 image changes if the player has actually started Polypa's route. If they haven't, she's in disguise. Makes for a fun little surprise.
-                # FOR THOSE OF YOU WHO DON'T IMMEDIATELY GO DIGGING INTO THE FILES, THAT IS
-                    
-                if volume5:
-                    
-                    if persistent.polypareveal:
-                    
-                        imagebutton auto "gui/volumefive2_%s.png" action Jump("volumefive") alt "Volume Five: Of Affection, Unwanted Or Untrue" sensitive volume5 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Five_Title.ogg")
-                    
-                    else:
-                    
-                        imagebutton auto "gui/volumefive1_%s.png" action Jump("volumefive") alt "Volume Five: Of Affection, Unwanted Or Untrue" sensitive volume5 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Five_Title.ogg")
-                
-                if volume6:
-
-                    imagebutton auto "gui/volumesix_%s.png" action Jump("volumesix") alt "Volume Six: Of Text And Envy, Green" sensitive volume6 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Six_Title.ogg")
- 
-                if volume7:
-
-                    imagebutton auto "gui/volumeseven_%s.png" action Jump("volumeseven") alt "Volume Seven: Of Business, Flagrantly Illegal" sensitive volume7 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Seven_Title.ogg")
-                    
-                if volume8:
-                    imagebutton auto "gui/volumeeight_%s.png" action Jump("volumeeight") alt "Volume Eight: Of Stresses, Song And Otherwise" sensitive volume8 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Eight_Title.ogg")
-                
-                # Guess who's doing this shit again LOL
-                
-                if volume9:
-                    
-                    if persistent.chahutreveal:
-                    
-                        imagebutton auto "gui/volumenine2_%s.png" action Jump("volumenine") alt "Volume Nine: Of Gazes Cool And Tempers Hot" sensitive volume9 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Nine_Title.ogg")
-                    
-                    else:
-                    
-                        imagebutton auto "gui/volumenine1_%s.png" action Jump("volumenine") alt "Volume Nine: Of Gazes Cool And Tempers Hot" sensitive volume9 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Nine_Title.ogg")
+                    if volume2:
                         
-                if volume10:
-                    imagebutton auto "gui/volumeten_%s.png" action Jump("volumeten") alt "Volume Ten: Of Faraway Lands And Nearby Friends" sensitive volume10 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Ten_Title.ogg")
-
-                if volume11:
-                    imagebutton auto "gui/volumeeleven_%s.png" action Jump("volumeeleven") alt "Volume Eleven: Of Pals And Promises, Made And Broken" sensitive volume11 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Eleven_Title.ogg")
+                        imagebutton auto "gui/volumetwo_%s.png" action Jump("volumetwo") alt _("Volume Two: Of Aesthetics, Crimson And Otherwise") sensitive volume2 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Two_Title.ogg")
+                        
+                    if volume3:
+                        
+                        imagebutton auto "gui/volumethree_%s.png" action Jump("volumethree") alt "Volume Three: Of Ladies Gray And Lusii White" sensitive volume3 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Three_Title.ogg")
+                        
+                    if volume4:
+                        
+                        imagebutton auto "gui/volumefour_%s.png" action Jump("volumefour") alt "Volume Four: Of Wright And Wronged" sensitive volume4 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Four_Title.ogg")
+                        
+                    # Volume 5 image changes if the player has actually started Polypa's route. If they haven't, she's in disguise. Makes for a fun little surprise.
+                    # FOR THOSE OF YOU WHO DON'T IMMEDIATELY GO DIGGING INTO THE FILES, THAT IS
+                        
+                    if volume5:
+                        
+                        if persistent.polypareveal:
+                        
+                            imagebutton auto "gui/volumefive2_%s.png" action Jump("volumefive") alt "Volume Five: Of Affection, Unwanted Or Untrue" sensitive volume5 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Five_Title.ogg")
+                        
+                        else:
+                        
+                            imagebutton auto "gui/volumefive1_%s.png" action Jump("volumefive") alt "Volume Five: Of Affection, Unwanted Or Untrue" sensitive volume5 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Five_Title.ogg")
                     
-                if volume12:
-                    imagebutton auto "gui/volumetwelve_%s.png" action Jump("volumetwelve") alt "Volume Twelve: Of Know-Nothings And Know-It-Alls" sensitive volume12 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Twelve_Title.ogg")
+                    if volume6:
 
-                if volume13:
-                    imagebutton auto "gui/volumethirteen_%s.png" action Jump("volumethirteen") alt "Volume Thirteen: Of Fate, Fashion, And Fortune" sensitive volume13 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Thirteen_Title.ogg")
+                        imagebutton auto "gui/volumesix_%s.png" action Jump("volumesix") alt "Volume Six: Of Text And Envy, Green" sensitive volume6 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Six_Title.ogg")
+    
+                    if volume7:
 
-                if volume14:
-                    imagebutton auto "gui/volumefourteen_%s.png" action Jump("volumefourteen") alt "Volume Fourteen: Of Cleanliness And Clownliness" sensitive volume14 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Fourteen_Title.ogg")
+                        imagebutton auto "gui/volumeseven_%s.png" action Jump("volumeseven") alt "Volume Seven: Of Business, Flagrantly Illegal" sensitive volume7 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Seven_Title.ogg")
+                        
+                    if volume8:
+                        imagebutton auto "gui/volumeeight_%s.png" action Jump("volumeeight") alt "Volume Eight: Of Stresses, Song And Otherwise" sensitive volume8 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Eight_Title.ogg")
+                    
+                    # Guess who's doing this shit again LOL
+                    
+                    if volume9:
+                        
+                        if persistent.chahutreveal:
+                        
+                            imagebutton auto "gui/volumenine2_%s.png" action Jump("volumenine") alt "Volume Nine: Of Gazes Cool And Tempers Hot" sensitive volume9 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Nine_Title.ogg")
+                        
+                        else:
+                        
+                            imagebutton auto "gui/volumenine1_%s.png" action Jump("volumenine") alt "Volume Nine: Of Gazes Cool And Tempers Hot" sensitive volume9 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Nine_Title.ogg")
+                            
+                    if volume10:
+                        imagebutton auto "gui/volumeten_%s.png" action Jump("volumeten") alt "Volume Ten: Of Faraway Lands And Nearby Friends" sensitive volume10 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Ten_Title.ogg")
 
-                if volume15:
-                    imagebutton auto "gui/volumefifteen_%s.png" action Jump("volumefifteen") alt "Volume Fifteen: Of Creatives, Conventional Or Otherwise" sensitive volume15 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Fifteen_Title.ogg")
+                    if volume11:
+                        imagebutton auto "gui/volumeeleven_%s.png" action Jump("volumeeleven") alt "Volume Eleven: Of Pals And Promises, Made And Broken" sensitive volume11 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Eleven_Title.ogg")
+                        
+                    if volume12:
+                        imagebutton auto "gui/volumetwelve_%s.png" action Jump("volumetwelve") alt "Volume Twelve: Of Know-Nothings And Know-It-Alls" sensitive volume12 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Twelve_Title.ogg")
 
-                if volume16:
-                    imagebutton auto "gui/volumesixteen_%s.png" action Jump("volumesixteen") alt "Volume Sixteen: Of Cult- And Capt-ivation" sensitive volume16 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Sixteen_Title.ogg")
+                    if volume13:
+                        imagebutton auto "gui/volumethirteen_%s.png" action Jump("volumethirteen") alt "Volume Thirteen: Of Fate, Fashion, And Fortune" sensitive volume13 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Thirteen_Title.ogg")
 
-                if volume17:
-                    imagebutton auto "gui/volumeseventeen_%s.png" action Jump("volumeseventeen") alt "Volume Seventeen: Of Teen And Tech, Acerbic" sensitive volume17 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Seventeen_Title.ogg")
+                    if volume14:
+                        imagebutton auto "gui/volumefourteen_%s.png" action Jump("volumefourteen") alt "Volume Fourteen: Of Cleanliness And Clownliness" sensitive volume14 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Fourteen_Title.ogg")
 
-                if volume18:
-                    imagebutton auto "gui/volumeeighteen_%s.png" action Jump("volumeeighteen") alt "Volume Eighteen" sensitive volume18 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Eighteen_Title.ogg")
-                
-                if persistent.epilogue == volume18 == True:
-                    imagebutton auto "gui/epilogue_%s.png" action Jump("epilogue") alt "Epilogue: Of Hosts, Excellent" sensitive persistent.epilogue hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Epilogue_Title.ogg")
+                    if volume15:
+                        imagebutton auto "gui/volumefifteen_%s.png" action Jump("volumefifteen") alt "Volume Fifteen: Of Creatives, Conventional Or Otherwise" sensitive volume15 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Fifteen_Title.ogg")
+
+                    if volume16:
+                        imagebutton auto "gui/volumesixteen_%s.png" action Jump("volumesixteen") alt "Volume Sixteen: Of Cult- And Capt-ivation" sensitive volume16 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Sixteen_Title.ogg")
+
+                    if volume17:
+                        imagebutton auto "gui/volumeseventeen_%s.png" action Jump("volumeseventeen") alt "Volume Seventeen: Of Teen And Tech, Acerbic" sensitive volume17 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Seventeen_Title.ogg")
+
+                    if volume18:
+                        imagebutton auto "gui/volumeeighteen_%s.png" action Jump("volumeeighteen") alt "Volume Eighteen" sensitive volume18 hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Eighteen_Title.ogg")
+                    
+                    if persistent.epilogue == volume18 == True:
+                        imagebutton auto "gui/epilogue_%s.png" action Jump("epilogue_fix") alt "Epilogue: Of Hosts, Excellent" sensitive persistent.epilogue hovered PlayCharacterVoice("menunarrator", "voice/hover/Volume_Epilogue_Title.ogg")
+                else: 
+
+                    imagebutton auto "gui/volumeone_%s.png" action Jump("volumeone") alt "Volume One: Of Bloodthirst And Bratwurst" sensitive volume1
+                    
+                    if volume2:
+                        
+                        imagebutton auto "gui/volumetwo_%s.png" action Jump("volumetwo") alt "Volume Two: Of Aesthetics, Crimson And Otherwise" sensitive volume2
+                        
+                    if volume3:
+                        
+                        imagebutton auto "gui/volumethree_%s.png" action Jump("volumethree") alt "Volume Three: Of Ladies Gray And Lusii White" sensitive volume3
+                        
+                    if volume4:
+                        
+                        imagebutton auto "gui/volumefour_%s.png" action Jump("volumefour") alt "Volume Four: Of Wright And Wronged" sensitive volume4
+                        
+                    # Volume 5 image changes if the player has actually started Polypa's route. If they haven't, she's in disguise. Makes for a fun little surprise.
+                    # FOR THOSE OF YOU WHO DON'T IMMEDIATELY GO DIGGING INTO THE FILES, THAT IS
+                        
+                    if volume5:
+                        
+                        if persistent.polypareveal:
+                        
+                            imagebutton auto "gui/volumefive2_%s.png" action Jump("volumefive") alt "Volume Five: Of Affection, Unwanted Or Untrue" sensitive volume5
+                        
+                        else:
+                        
+                            imagebutton auto "gui/volumefive1_%s.png" action Jump("volumefive") alt "Volume Five: Of Affection, Unwanted Or Untrue" sensitive volume5
+                    
+                    if volume6:
+
+                        imagebutton auto "gui/volumesix_%s.png" action Jump("volumesix") alt "Volume Six: Of Text And Envy, Green" sensitive volume6
+    
+                    if volume7:
+
+                        imagebutton auto "gui/volumeseven_%s.png" action Jump("volumeseven") alt "Volume Seven: Of Business, Flagrantly Illegal" sensitive volume7
+                        
+                    if volume8:
+                        imagebutton auto "gui/volumeeight_%s.png" action Jump("volumeeight") alt "Volume Eight: Of Stresses, Song And Otherwise" sensitive volume8
+                    
+                    # Guess who's doing this shit again LOL
+                    
+                    if volume9:
+                        
+                        if persistent.chahutreveal:
+                        
+                            imagebutton auto "gui/volumenine2_%s.png" action Jump("volumenine") alt "Volume Nine: Of Gazes Cool And Tempers Hot" sensitive volume9
+                        
+                        else:
+                        
+                            imagebutton auto "gui/volumenine1_%s.png" action Jump("volumenine") alt "Volume Nine: Of Gazes Cool And Tempers Hot" sensitive volume9
+                            
+                    if volume10:
+                        imagebutton auto "gui/volumeten_%s.png" action Jump("volumeten") alt "Volume Ten: Of Faraway Lands And Nearby Friends" sensitive volume10
+
+                    if volume11:
+                        imagebutton auto "gui/volumeeleven_%s.png" action Jump("volumeeleven") alt "Volume Eleven: Of Pals And Promises, Made And Broken" sensitive volume11
+                        
+                    if volume12:
+                        imagebutton auto "gui/volumetwelve_%s.png" action Jump("volumetwelve") alt "Volume Twelve: Of Know-Nothings And Know-It-Alls" sensitive volume12
+
+                    if volume13:
+                        imagebutton auto "gui/volumethirteen_%s.png" action Jump("volumethirteen") alt "Volume Thirteen: Of Fate, Fashion, And Fortune" sensitive volume13
+
+                    if volume14:
+                        imagebutton auto "gui/volumefourteen_%s.png" action Jump("volumefourteen") alt "Volume Fourteen: Of Cleanliness And Clownliness" sensitive volume14
+
+                    if volume15:
+                        imagebutton auto "gui/volumefifteen_%s.png" action Jump("volumefifteen") alt "Volume Fifteen: Of Creatives, Conventional Or Otherwise" sensitive volume15
+
+                    if volume16:
+                        imagebutton auto "gui/volumesixteen_%s.png" action Jump("volumesixteen") alt "Volume Sixteen: Of Cult- And Capt-ivation" sensitive volume16
+
+                    if volume17:
+                        imagebutton auto "gui/volumeseventeen_%s.png" action Jump("volumeseventeen") alt "Volume Seventeen: Of Teen And Tech, Acerbic" sensitive volume17
+
+                    if volume18:
+                        imagebutton auto "gui/volumeeighteen_%s.png" action Jump("volumeeighteen") alt "Volume Eighteen" sensitive volume18
+                    
+                    if persistent.epilogue == volume18 == True:
+                        imagebutton auto "gui/epilogue_%s.png" action Jump("epilogue_fix") alt "Epilogue: Of Hosts, Excellent" sensitive persistent.epilogue
+
+
 
 
                 # For locked volumes: We show the DLC screen, which takes two arguments after the default arguments.
@@ -1266,97 +1387,179 @@ init -5 python:
 ## Choose ya troll! Very simple. Just two image buttons.
 
 screen troll_select1():
-    
-    imagebutton auto "images/charselect/ardata_button_%s.png" action Jump("ardata") pos (0, 0) alt _("Ardata Carmia") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/ardata.ogg")# "voice/hover/Volume_1_Ardata_Select.ogg")
-    imagebutton auto "images/charselect/diemen_button_%s.png" action Jump("diemen") pos (640, 0) alt _("Diemen Xicali") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/diemen.ogg")# "voice/hover/Volume_1_Diemen_Select.ogg")
+    if config.has_voice:
+        imagebutton auto "images/charselect/ardata_button_%s.png" action Jump("ardata") pos (0, 0) alt _("Ardata Carmia") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/ardata.ogg")
+        imagebutton auto "images/charselect/diemen_button_%s.png" action Jump("diemen") pos (640, 0) alt _("Diemen Xicali") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/diemen.ogg")
+    else: 
+        imagebutton auto "images/charselect/ardata_button_%s.png" action Jump("ardata") pos (0, 0) alt _("Ardata Carmia")
+        imagebutton auto "images/charselect/diemen_button_%s.png" action Jump("diemen") pos (640, 0) alt _("Diemen Xicali")
+
     
 screen troll_select2():
-    
-    imagebutton auto "volumes/volume2/images/charselect/amisia_button_%s.png" action Jump("amisia") pos (0, 0) alt _("Amisia Erdehn") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/amisia.ogg")
-    imagebutton auto "volumes/volume2/images/charselect/cirava_button_%s.png" action Jump("cirava") pos (640, 0) alt _("Cirava Hermod") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/cirava.ogg")
+    if config.has_voice:
+        imagebutton auto "volumes/volume2/images/charselect/amisia_button_%s.png" action Jump("amisia") pos (0, 0) alt _("Amisia Erdehn") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/amisia.ogg")
+        imagebutton auto "volumes/volume2/images/charselect/cirava_button_%s.png" action Jump("cirava") pos (640, 0) alt _("Cirava Hermod") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/cirava.ogg")
+    else: 
+        imagebutton auto "volumes/volume2/images/charselect/amisia_button_%s.png" action Jump("amisia") pos (0, 0) alt _("Amisia Erdehn")
+        imagebutton auto "volumes/volume2/images/charselect/cirava_button_%s.png" action Jump("cirava") pos (640, 0) alt _("Cirava Hermod")
     
 screen troll_select3():
-    
-    imagebutton auto "volumes/volume3/images/charselect/skylla_button_%s.png" action Jump("skylla") pos (0, 0) alt _("Skylla Koriga") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/skylla.ogg")
-    imagebutton auto "volumes/volume3/images/charselect/bronya_button_%s.png" action Jump("bronya") pos (640, 0) alt _("Bronya Ursama") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/bronya.ogg")
+    if config.has_voice:
+        imagebutton auto "volumes/volume3/images/charselect/skylla_button_%s.png" action Jump("skylla") pos (0, 0) alt _("Skylla Koriga") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/skylla.ogg")
+        imagebutton auto "volumes/volume3/images/charselect/bronya_button_%s.png" action Jump("bronya") pos (640, 0) alt _("Bronya Ursama") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/bronya.ogg")
+    else: 
+        imagebutton auto "volumes/volume3/images/charselect/skylla_button_%s.png" action Jump("skylla") pos (0, 0) alt _("Skylla Koriga")
+        imagebutton auto "volumes/volume3/images/charselect/bronya_button_%s.png" action Jump("bronya") pos (640, 0) alt _("Bronya Ursama")
     
 screen troll_select4():
-    
-    imagebutton auto "volumes/volume4/images/charselect/tagora_button_%s.png" action Jump("tagora") pos (0, 0) alt _("Tagora Gorjek") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/tagora.ogg")
-    imagebutton auto "volumes/volume4/images/charselect/vikare_button_%s.png" action Jump("vikare") pos (640, 0) alt _("Vikare Ratite") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/vikare.ogg")
+    if config.has_voice:
+        imagebutton auto "volumes/volume4/images/charselect/tagora_button_%s.png" action Jump("tagora") pos (0, 0) alt _("Tagora Gorjek") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/tagora.ogg")
+        imagebutton auto "volumes/volume4/images/charselect/vikare_button_%s.png" action Jump("vikare") pos (640, 0) alt _("Vikare Ratite") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/vikare.ogg")
+    else: 
+        imagebutton auto "volumes/volume4/images/charselect/tagora_button_%s.png" action Jump("tagora") pos (0, 0) alt _("Tagora Gorjek") 
+        imagebutton auto "volumes/volume4/images/charselect/vikare_button_%s.png" action Jump("vikare") pos (640, 0) alt _("Vikare Ratite")
     
 screen troll_select5():
     
-    if persistent.polypareveal:
-        imagebutton auto "volumes/volume5/images/charselect/polypa2_button_%s.png" action Jump("polypa") pos (0, 0) alt _("Polypa Goezee") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/polypa.ogg")
+    if config.has_voice:
+
+        if persistent.polypareveal:
+            imagebutton auto "volumes/volume5/images/charselect/polypa2_button_%s.png" action Jump("polypa") pos (0, 0) alt _("Polypa Goezee") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/polypa.ogg")
+        else:
+            imagebutton auto "volumes/volume5/images/charselect/polypa1_button_%s.png" action Jump("polypa") pos (0, 0) alt _("??????")   
+            
+        imagebutton auto "volumes/volume5/images/charselect/zebruh_button_%s.png" action Jump("zebruh") pos (640, 0) alt _("Zebruh Codakk") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/zebruh.ogg")
     else:
-        imagebutton auto "volumes/volume5/images/charselect/polypa1_button_%s.png" action Jump("polypa") pos (0, 0) alt _("??????")   
-        
-    imagebutton auto "volumes/volume5/images/charselect/zebruh_button_%s.png" action Jump("zebruh") pos (640, 0) alt _("Zebruh Codakk") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/zebruh.ogg")
+        if persistent.polypareveal:
+            imagebutton auto "volumes/volume5/images/charselect/polypa2_button_%s.png" action Jump("polypa") pos (0, 0) alt _("Polypa Goezee")
+        else:
+            imagebutton auto "volumes/volume5/images/charselect/polypa1_button_%s.png" action Jump("polypa") pos (0, 0) alt _("??????")   
+            
+        imagebutton auto "volumes/volume5/images/charselect/zebruh_button_%s.png" action Jump("zebruh") pos (640, 0) alt _("Zebruh Codakk")
+
 
 screen troll_select6():
-    imagebutton auto "volumes/volume6/images/charselect/elwurd_button_%s.png" action Jump("elwurd") pos (0, 0) alt _("Elwurd") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/elwurd.ogg")
-    imagebutton auto "volumes/volume6/images/charselect/kuprum_button_%s.png" action Jump("folyklkuprum") pos (640, 0) alt _("Kuprum and Folykl") # hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/kuprumfolykl.ogg")
+    if config.has_voice:
+        imagebutton auto "volumes/volume6/images/charselect/elwurd_button_%s.png" action Jump("elwurd") pos (0, 0) alt _("Elwurd") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/elwurd.ogg")
+        imagebutton auto "volumes/volume6/images/charselect/kuprum_button_%s.png" action Jump("folyklkuprum") pos (640, 0) alt _("Kuprum and Folykl") # hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/kuprumfolykl.ogg")
+    else:
+        imagebutton auto "volumes/volume6/images/charselect/elwurd_button_%s.png" action Jump("elwurd") pos (0, 0) alt _("Elwurd")
+        imagebutton auto "volumes/volume6/images/charselect/kuprum_button_%s.png" action Jump("folyklkuprum") pos (640, 0) alt _("Kuprum and Folykl") 
+
     
 screen troll_select7():
-    imagebutton auto "volumes/volume7/images/charselect/remele_button_%s.png" action Jump("remele") pos (0, 0) alt _("Remele Namaaq") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/remele.ogg")
-    imagebutton auto "volumes/volume7/images/charselect/konyyl_button_%s.png" action Jump("konyyl") pos (640, 0) alt _("Konyyl Okimaw") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/konyyl.ogg")
+    if config.has_voice:
+        imagebutton auto "volumes/volume7/images/charselect/remele_button_%s.png" action Jump("remele") pos (0, 0) alt _("Remele Namaaq") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/remele.ogg")
+        imagebutton auto "volumes/volume7/images/charselect/konyyl_button_%s.png" action Jump("konyyl") pos (640, 0) alt _("Konyyl Okimaw") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/konyyl.ogg")
+    else:
+        imagebutton auto "volumes/volume7/images/charselect/remele_button_%s.png" action Jump("remele") pos (0, 0) alt _("Remele Namaaq") 
+        imagebutton auto "volumes/volume7/images/charselect/konyyl_button_%s.png" action Jump("konyyl") pos (640, 0) alt _("Konyyl Okimaw") 
 
 screen troll_select8():
-    imagebutton auto "volumes/volume8/images/charselect/tyzias_button_%s.png" action Jump("tyzias") pos (0, 0) alt _("Tyzias Entykk") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/tyzias.ogg")
-    imagebutton auto "volumes/volume8/images/charselect/chixie_button_%s.png" action Jump("chixie") pos (640, 0) alt _("Chixie Roixmr") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/chixie.ogg")
+    if config.has_voice:
+        imagebutton auto "volumes/volume8/images/charselect/tyzias_button_%s.png" action Jump("tyzias") pos (0, 0) alt _("Tyzias Entykk") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/tyzias.ogg")
+        imagebutton auto "volumes/volume8/images/charselect/chixie_button_%s.png" action Jump("chixie") pos (640, 0) alt _("Chixie Roixmr") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/chixie.ogg")
+    else:
+        imagebutton auto "volumes/volume8/images/charselect/tyzias_button_%s.png" action Jump("tyzias") pos (0, 0) alt _("Tyzias Entykk") 
+        imagebutton auto "volumes/volume8/images/charselect/chixie_button_%s.png" action Jump("chixie") pos (640, 0) alt _("Chixie Roixmr") 
 
 screen troll_select9():
-    
-    imagebutton auto "volumes/volume9/images/charselect/azdaja_button_%s.png" action Jump("azdaja") pos (0, 0) alt _("Azdaja Knelax") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/azdaja.ogg")
-    
-    if persistent.chahutreveal:
-        imagebutton auto "volumes/volume9/images/charselect/chahut_button_%s.png" action Jump("chahut") pos (640, 0) alt _("Chahut Maenad") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/chahut.ogg") 
+    if config.has_voice:
+        imagebutton auto "volumes/volume9/images/charselect/azdaja_button_%s.png" action Jump("azdaja") pos (0, 0) alt _("Azdaja Knelax") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/azdaja.ogg")
+        
+        if persistent.chahutreveal:
+            imagebutton auto "volumes/volume9/images/charselect/chahut_button_%s.png" action Jump("chahut") pos (640, 0) alt _("Chahut Maenad") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/chahut.ogg") 
+        else:
+            imagebutton auto "volumes/volume9/images/charselect/amisia2_button_%s.png" action Jump("chahut") pos (640, 0) alt _("Amisia Erdehn?") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/amisia.ogg") 
     else:
-        imagebutton auto "volumes/volume9/images/charselect/amisia2_button_%s.png" action Jump("chahut") pos (640, 0) alt _("Amisia Erdehn?") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/amisia.ogg") 
+        imagebutton auto "volumes/volume9/images/charselect/azdaja_button_%s.png" action Jump("azdaja") pos (0, 0) alt _("Azdaja Knelax")
+        
+        if persistent.chahutreveal:
+            imagebutton auto "volumes/volume9/images/charselect/chahut_button_%s.png" action Jump("chahut") pos (640, 0) alt _("Chahut Maenad")
+        else:
+            imagebutton auto "volumes/volume9/images/charselect/amisia2_button_%s.png" action Jump("chahut") pos (640, 0) alt _("Amisia Erdehn?")
+
         
 screen troll_select10():
-    imagebutton auto "volumes/volume10/images/charselect/zebede_button_%s.png" action Jump("zebede") pos (0, 0) alt _("Zebede Tongva") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/zebede.ogg")
-    imagebutton auto "volumes/volume10/images/charselect/tegiri_button_%s.png" action Jump("tegiri") pos (640, 0) alt _("Tegiri Kalbur") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/tegiri.ogg")
+    if config.has_voice:
+        imagebutton auto "volumes/volume10/images/charselect/zebede_button_%s.png" action Jump("zebede") pos (0, 0) alt _("Zebede Tongva") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/zebede.ogg")
+        imagebutton auto "volumes/volume10/images/charselect/tegiri_button_%s.png" action Jump("tegiri") pos (640, 0) alt _("Tegiri Kalbur") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/tegiri.ogg")
+    else: 
+        imagebutton auto "volumes/volume10/images/charselect/zebede_button_%s.png" action Jump("zebede") pos (0, 0) alt _("Zebede Tongva")
+        imagebutton auto "volumes/volume10/images/charselect/tegiri_button_%s.png" action Jump("tegiri") pos (640, 0) alt _("Tegiri Kalbur") 
 
 screen troll_select11():
-    imagebutton auto "volumes/volume11/images/charselect/mallek_button_%s.png" action Jump("mallek") pos (0, 0) alt _("Mallek Adalov") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/mallek.ogg")
-    imagebutton auto "volumes/volume11/images/charselect/lynera_button_%s.png" action Jump("lynera") pos (640, 0) alt _("Lynera Skalbi") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/lynera.ogg")
+    if config.has_voice:
+        imagebutton auto "volumes/volume11/images/charselect/mallek_button_%s.png" action Jump("mallek") pos (0, 0) alt _("Mallek Adalov") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/mallek.ogg")
+        imagebutton auto "volumes/volume11/images/charselect/lynera_button_%s.png" action Jump("lynera") pos (640, 0) alt _("Lynera Skalbi") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/lynera.ogg")
+    else: 
+        imagebutton auto "volumes/volume11/images/charselect/mallek_button_%s.png" action Jump("mallek") pos (0, 0) alt _("Mallek Adalov") 
+        imagebutton auto "volumes/volume11/images/charselect/lynera_button_%s.png" action Jump("lynera") pos (640, 0) alt _("Lynera Skalbi") 
     
 screen troll_select12():
-    imagebutton auto "volumes/volume12/images/charselect/galekh_button_%s.png" action Jump("galekh") pos (0, 0) alt _("Galekh Xigisi") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/galekh.ogg")
-    imagebutton auto "volumes/volume12/images/charselect/tirona_button_%s.png" action Jump("tirona") pos (640, 0) alt _("Tirona Kasund") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/tirona.ogg")
+    if config.has_voice:
+        imagebutton auto "volumes/volume12/images/charselect/galekh_button_%s.png" action Jump("galekh") pos (0, 0) alt _("Galekh Xigisi") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/galekh.ogg")
+        imagebutton auto "volumes/volume12/images/charselect/tirona_button_%s.png" action Jump("tirona") pos (640, 0) alt _("Tirona Kasund") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/tirona.ogg")
+    else: 
+        imagebutton auto "volumes/volume12/images/charselect/galekh_button_%s.png" action Jump("galekh") pos (0, 0) alt _("Galekh Xigisi")
+        imagebutton auto "volumes/volume12/images/charselect/tirona_button_%s.png" action Jump("tirona") pos (640, 0) alt _("Tirona Kasund")
 
 screen troll_select13():
-    imagebutton auto "volumes/volume13/images/charselect/boldir_button_%s.png" action Jump("boldir") pos (0, 0) alt _("Boldir Lamati") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/boldir.ogg")
-    imagebutton auto "volumes/volume13/images/charselect/stelsa_button_%s.png" action Jump("stelsa") pos (640, 0) alt _("Stelsa Sezyat") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/stelsa.ogg")
+    if config.has_voice:
+        imagebutton auto "volumes/volume13/images/charselect/boldir_button_%s.png" action Jump("boldir") pos (0, 0) alt _("Boldir Lamati") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/boldir.ogg")
+        imagebutton auto "volumes/volume13/images/charselect/stelsa_button_%s.png" action Jump("stelsa") pos (640, 0) alt _("Stelsa Sezyat") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/stelsa.ogg")
+    else: 
+        imagebutton auto "volumes/volume13/images/charselect/boldir_button_%s.png" action Jump("boldir") pos (0, 0) alt _("Boldir Lamati")
+        imagebutton auto "volumes/volume13/images/charselect/stelsa_button_%s.png" action Jump("stelsa") pos (640, 0) alt _("Stelsa Sezyat") 
+
 
 screen troll_select14():
-    imagebutton auto "volumes/volume14/images/charselect/marsti_button_%s.png" action Jump("marsti") pos (0, 0) alt _("Marsti Houtek") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/marsti.ogg")
-    imagebutton auto "volumes/volume14/images/charselect/karako_button_%s.png" action Jump("karako") pos (640, 0) alt _("Karako Pierot") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/karako.ogg")
+    if config.has_voice:
+        imagebutton auto "volumes/volume14/images/charselect/marsti_button_%s.png" action Jump("marsti") pos (0, 0) alt _("Marsti Houtek") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/marsti.ogg")
+        imagebutton auto "volumes/volume14/images/charselect/karako_button_%s.png" action Jump("karako") pos (640, 0) alt _("Karako Pierot") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/karako.ogg")
+    else: 
+        imagebutton auto "volumes/volume14/images/charselect/marsti_button_%s.png" action Jump("marsti") pos (0, 0) alt _("Marsti Houtek")
+        imagebutton auto "volumes/volume14/images/charselect/karako_button_%s.png" action Jump("karako") pos (640, 0) alt _("Karako Pierot")
+
 
 screen troll_select15():
-    imagebutton auto "volumes/volume15/images/charselect/charun_button_%s.png" action Jump("charun") pos (0, 0) alt _("Charun Krojib") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/charun.ogg")
-    imagebutton auto "volumes/volume15/images/charselect/wanshi_button_%s.png" action Jump("wanshi") pos (640, 0) alt _("Wanshi Adyata") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/wanshi.ogg")
+    if config.has_voice:
+        imagebutton auto "volumes/volume15/images/charselect/charun_button_%s.png" action Jump("charun") pos (0, 0) alt _("Charun Krojib") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/charun.ogg")
+        imagebutton auto "volumes/volume15/images/charselect/wanshi_button_%s.png" action Jump("wanshi") pos (640, 0) alt _("Wanshi Adyata") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/wanshi.ogg")
+    else:
+        imagebutton auto "volumes/volume15/images/charselect/charun_button_%s.png" action Jump("charun") pos (0, 0) alt _("Charun Krojib")
+        imagebutton auto "volumes/volume15/images/charselect/wanshi_button_%s.png" action Jump("wanshi") pos (640, 0) alt _("Wanshi Adyata") 
 
 screen troll_select16():
-    imagebutton auto "volumes/volume16/images/charselect/fozzer_button_%s.png" action Jump("fozzer") pos (0, 0) alt _("Fozzer Velyes") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/fozzer.ogg")
-    imagebutton auto "volumes/volume16/images/charselect/marvus_button_%s.png" action Jump("marvus") pos (640, 0) alt _("Marvus Xoloto") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/marvus.ogg")
+    if config.has_voice:
+        imagebutton auto "volumes/volume16/images/charselect/fozzer_button_%s.png" action Jump("fozzer") pos (0, 0) alt _("Fozzer Velyes") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/fozzer.ogg")
+        imagebutton auto "volumes/volume16/images/charselect/marvus_button_%s.png" action Jump("marvus") pos (640, 0) alt _("Marvus Xoloto") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/marvus.ogg")
+    else:
+        imagebutton auto "volumes/volume16/images/charselect/fozzer_button_%s.png" action Jump("fozzer") pos (0, 0) alt _("Fozzer Velyes")
+        imagebutton auto "volumes/volume16/images/charselect/marvus_button_%s.png" action Jump("marvus") pos (640, 0) alt _("Marvus Xoloto")
 
 screen troll_select17():
-    imagebutton auto "volumes/volume17/images/charselect/daraya_button_%s.png" action Jump("daraya") pos (0, 0) alt _("Daraya Jonjet") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/daraya.ogg")
-    imagebutton auto "volumes/volume17/images/charselect/nihkee_button_%s.png" action Jump("nihkee_fix") pos (640, 0) alt _("Nihkee Moolah") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/nihkee.ogg")
+    if config.has_voice:
+        imagebutton auto "volumes/volume17/images/charselect/daraya_button_%s.png" action Jump("daraya") pos (0, 0) alt _("Daraya Jonjet") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/daraya.ogg")
+        imagebutton auto "volumes/volume17/images/charselect/nihkee_button_%s.png" action Jump("nihkee_fix") pos (640, 0) alt _("Nihkee Moolah") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/nihkee.ogg")
+    else:
+        imagebutton auto "volumes/volume17/images/charselect/daraya_button_%s.png" action Jump("daraya") pos (0, 0) alt _("Daraya Jonjet") 
+        imagebutton auto "volumes/volume17/images/charselect/nihkee_button_%s.png" action Jump("nihkee_fix") pos (640, 0) alt _("Nihkee Moolah")
 
 screen troll_select18():
-    imagebutton auto "volumes/volume18/images/charselect/lanque_button_%s.png" action Jump("lanque") pos (0, 0) alt _("Lanque Bombyx") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/lanque.ogg")
-    imagebutton auto "volumes/volume18/images/charselect/soleil_button_%s.png" action Jump("soleil") pos (640, 0) alt _("Barzum & Bazili") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/baizbaz.ogg")
+    if config.has_voice:
+        imagebutton auto "volumes/volume18/images/charselect/lanque_button_%s.png" action Jump("lanque") pos (0, 0) alt _("Lanque Bombyx") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/lanque.ogg")
+        imagebutton auto "volumes/volume18/images/charselect/soleil_button_%s.png" action Jump("soleil") pos (640, 0) alt _("Barzum & Bazili") hovered PlayCharacterVoice("narrator", "voice/hover/fsim_names/baizbaz.ogg")
+    else:
+        imagebutton auto "volumes/volume18/images/charselect/lanque_button_%s.png" action Jump("lanque") pos (0, 0) alt _("Lanque Bombyx") 
+        imagebutton auto "volumes/volume18/images/charselect/soleil_button_%s.png" action Jump("soleil") pos (640, 0) alt _("Barzum & Bazili") 
 
 screen choice(items):
     style_prefix "choice"
 
     vbox:
         for i in items: 
-            if renpy.loadable("voice/hover/"+ i.caption + ".ogg"):
+            if renpy.loadable("voice/hover/"+ i.caption + ".ogg") and config.has_voice:
                 textbutton i.caption action i.action hovered PlayCharacterVoice("narrator", "voice/hover/"+ i.caption + ".ogg")
             else: 
                 textbutton i.caption action i.action                
