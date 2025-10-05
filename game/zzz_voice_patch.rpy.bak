@@ -1,5 +1,5 @@
 define config.has_voice = False
-# define config.auto_voice = "voice/{id}.ogg"
+define config.auto_voice = "voice/{id}.ogg"
 default persistent.quickmenu = True 
 define config.developer = True 
 # define config.version = "VOICE FANPATCH PRE_0.01"
