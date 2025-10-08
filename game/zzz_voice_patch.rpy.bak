@@ -28,8 +28,9 @@ default persistent.volume14 = False
 default persistent.volume15 = False
 default persistent.volume16 = False
 default persistent.volume17 = False
-default persistent.volume18r1 = False
-default persistent.volume18r2 = False
+default persistent.volume18 = False
+default persistent.v18r1 = False
+default persistent.v18r2 = False
 
 transform wigglenew:
     
